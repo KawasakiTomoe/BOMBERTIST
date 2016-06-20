@@ -15,11 +15,11 @@ public class GameStartScript : MonoBehaviour {
 			for (int i = 0; i < Input.touchCount; i++) {
 				Touch touch = Input.GetTouch (i);
 			if (touch.phase == TouchPhase.Began){
-				SceneManager.LoadScene ("Selection");
+				SceneManager.LoadScene ("MainSelection");
 				}
 			}
 			if (Input.GetMouseButtonDown (0)) {
-				SceneManager.LoadScene("Selection");
+				SceneManager.LoadScene("MainSelection");
 			}
 		}
 }		
