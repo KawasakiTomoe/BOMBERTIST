@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStartScript : MonoBehaviour {
 		
-    private GameObject Main;
+    public GameObject Main;
 
 		void Start (){
 			Main = GameObject.Find ("Title");

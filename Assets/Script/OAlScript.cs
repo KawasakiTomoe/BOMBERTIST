@@ -3,14 +3,15 @@ using System.Collections;
 
 public class OAlScript : MonoBehaviour {
 
-	GameObject Al = GameObject.Find ("Sphere");
-	GameObject dousen = GameObject.Find ("Capsule");
-	GameObject bomb = GameObject.Find("Explosion");
+	public GameObject cup;
+	public GameObject bomb;
+	public GameObject box; 
 
-	 
 	// Use this for initialization
 	void Start () {
-	
+		cup = GameObject.Find ("Cylinder");
+		bomb = GameObject.Find ("Explosion");
+		box = GameObject.Find ("Cube");
 	}
 	
 	// Update is called once per frame
@@ -18,10 +19,12 @@ public class OAlScript : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter(Collision other){
-		Destroy (Al.gameObject);
-		Destroy (dousen.gameObject);
-		Instantiate (bomb, transform.position, transform.rotation);
-
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.name == "Cube") {
+			Instantiate (bomb, transform.position, transform.rotation);
+			Destroy (box.gameObject);
+			Destroy (cup.gameObject);
+		}
+		Debug.Log(1);
 	}
 }
