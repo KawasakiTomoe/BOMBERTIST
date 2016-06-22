@@ -20,6 +20,24 @@ public class ButtonScript : MonoBehaviour {
 		case 3:
 			SceneManager.LoadScene ("Selection4");
 			break;
+		case 4:
+			SceneManager.LoadScene ("NO");
+			break;
+		case 5:
+			SceneManager.LoadScene ("NI");
+			break;
+		case 6:
+			SceneManager.LoadScene ("NAl");
+			break;
+		case 7:
+			SceneManager.LoadScene ("OI");
+			break;
+		case 8:
+			SceneManager.LoadScene ("OAl");
+			break;
+		case 9:
+			SceneManager.LoadScene ("IAl");
+			break;
 		}
 	}
 }

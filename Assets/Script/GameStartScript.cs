@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameStartScript : MonoBehaviour {
 		
-    private GameObject main;
+    private GameObject Main;
 
 		void Start (){
-			main = GameObject.Find ("Title");
+			Main = GameObject.Find ("Title");
 		}
 
 		void Update (){
