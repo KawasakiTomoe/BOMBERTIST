@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OAlScript : MonoBehaviour {
+  public class OAlScript : MonoBehaviour {
 
 	public GameObject Al;
 	public GameObject bomb;
