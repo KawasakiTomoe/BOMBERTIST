@@ -9,6 +9,8 @@ public class IAlScript : MonoBehaviour {
 	public GameObject water;
 	public GameObject pipetto;
 
+	public Transform ePosition;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -29,7 +31,7 @@ public class IAlScript : MonoBehaviour {
 
 	void happend() {
 		Destroy (pipetto.gameObject);
-		Instantiate (smoke, transform.position, transform.rotation);
+		Instantiate (smoke, ePosition.position, transform.rotation);
 		Debug.Log (3);
 	}
 }
