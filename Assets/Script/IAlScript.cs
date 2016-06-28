@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class IAlScript : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class IAlScript : MonoBehaviour {
 	public GameObject pipetto;
 
 	public Transform ePosition;
+
+	public screenScript ss;
+
+	public Text order;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +28,9 @@ public class IAlScript : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "water") {
+			order.text = " ";
+			ss.StartAnimation ();
+			Invoke ("ss.NextAnimation", 0.5f);
 			Invoke("happend", 2.0f);
 			Destroy (other.gameObject);
 			Debug.Log(2);
