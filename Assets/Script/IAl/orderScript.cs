@@ -17,10 +17,11 @@ public class orderScript : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		order.text = "";
+		order.enabled = false;
 	}
 
 	void OnMouseUp(){
-		order.text = "drop water";
+		order.enabled = true;
 	}
+
 }

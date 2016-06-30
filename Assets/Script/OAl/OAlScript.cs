@@ -7,11 +7,11 @@ using System.Collections;
 	public GameObject bomb;
 	public GameObject Senkou; 
 
+	public Animator order;
+
 	// Use this for initialization
 	void Start () {
-		Al = GameObject.Find ("cube");
-		bomb = GameObject.Find ("Explosion");
-		Senkou = GameObject.Find ("senkou");
+		Invoke ("NextAnimation", 2.3f);
 	}
 	
 	// Update is called once per frame
@@ -20,11 +20,14 @@ using System.Collections;
 	}
 
 	void OnCollisionEnter(Collision col){
-		if (col.gameObject.name == "senkou") {
+		if (col.gameObject.name == "fire") {
 			Instantiate (bomb, transform.position, transform.rotation);
 			Destroy (Senkou.gameObject);
 			Destroy (this.gameObject);
 		}
-		Debug.Log(1);
+	}
+
+	void NextAnimation(){
+		order.SetTrigger ("switch");
 	}
 }

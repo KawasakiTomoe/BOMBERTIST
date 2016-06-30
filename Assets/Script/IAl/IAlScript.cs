@@ -10,14 +10,13 @@ public class IAlScript : MonoBehaviour {
 	public GameObject water;
 	public GameObject pipetto;
 
-	public Transform ePosition;
-
 	public screenScript ss;
 
-	public Text order;
+	public Animator order;
 
 	// Use this for initialization
 	void Start () {
+		Invoke ("NextAnimation", 3.0f);
 		
 	}
 
@@ -26,9 +25,12 @@ public class IAlScript : MonoBehaviour {
 
 	}
 
+	void NextAnimation(){
+		order.SetTrigger ("switch");
+	}
+
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "water") {
-			order.text = " ";
 			ss.StartAnimation ();
 			Invoke ("ss.NextAnimation", 0.5f);
 			Invoke("happend", 2.0f);
@@ -39,7 +41,7 @@ public class IAlScript : MonoBehaviour {
 
 	void happend() {
 		Destroy (pipetto.gameObject);
-		Instantiate (smoke, ePosition.position, transform.rotation);
+		Instantiate (smoke, transform.position, transform.rotation);
 		Debug.Log (3);
 	}
 }
