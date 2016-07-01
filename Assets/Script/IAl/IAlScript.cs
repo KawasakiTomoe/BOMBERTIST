@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class IAlScript : MonoBehaviour {
 
@@ -9,10 +10,9 @@ public class IAlScript : MonoBehaviour {
 	public GameObject fireworks; 
 	public GameObject water;
 	public GameObject pipetto;
-
-	public screenScript ss;
-
+	public GameObject eP;
 	public Animator order;
+	public Animator backbutton;
 
 	// Use this for initialization
 	void Start () {
@@ -31,17 +31,30 @@ public class IAlScript : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "water") {
-			ss.StartAnimation ();
-			Invoke ("ss.NextAnimation", 0.5f);
 			Invoke("happend", 2.0f);
+			Invoke ("firework", 4.0f);
 			Destroy (other.gameObject);
 			Debug.Log(2);
 		}
+
+		Invoke ("back", 9.0f);
 	}
 
 	void happend() {
 		Destroy (pipetto.gameObject);
 		Instantiate (smoke, transform.position, transform.rotation);
 		Debug.Log (3);
+	}
+
+	void back(){
+		backbutton.SetTrigger ("switch");
+	}
+
+	public void OnClick(){
+		SceneManager.LoadScene ("MainSelection");
+	}
+
+	void firework(){
+		Instantiate (fireworks, eP.transform.position, transform.rotation);
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NOScript : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class NOScript : MonoBehaviour {
 	public Text order1;
 
 	public Animator element2;
+	public Animator button;
 
 	float flag = 0;
 
@@ -20,7 +22,7 @@ public class NOScript : MonoBehaviour {
 	void Start () {
 		element2 = GetComponent<Animator> ();
 		react.SetActive (false);
-		Invoke ("NextAnimation", 2.3f);
+		Invoke ("NextAnimation", 3.0f);
 
 	}
 	
@@ -42,6 +44,7 @@ public class NOScript : MonoBehaviour {
 			element2.SetTrigger ("switch3");
 			Destroy (macchi.gameObject);
 			Invoke("end", 1.5f);
+			Invoke ("Anime", 2.0f);
 		}
 	}
 
@@ -59,5 +62,13 @@ public class NOScript : MonoBehaviour {
 
 	void NextAnimation(){
 		order.SetTrigger ("switch");
+	}
+
+	void Anime(){
+		button.SetTrigger ("switch");
+	}
+
+	public void OnClick(){
+		SceneManager.LoadScene ("MainSelection");
 	}
 }

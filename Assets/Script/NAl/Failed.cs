@@ -11,7 +11,7 @@ public class Failed: MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		back.SetActive(false);
-		Invoke ("Next", 6.0f);
+		Invoke ("Next", 9.0f);
 	}
 	
 	// Update is called once per frame
